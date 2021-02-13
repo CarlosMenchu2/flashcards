@@ -1,0 +1,24 @@
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="flex-end center" class="btn-new-category">
+    <button mat-raised-button color="primary" (click)="onCreateDialog()">
+      <mat-icon>add</mat-icon> <span>Nueva Categoria</span>
+    </button>
+  </div>
+
+
+  <div fxLayout="row wrap" fxLayoutAlign="flex-start center" fxLayout.lt-md="column" fxLayoutGap="80px">
+    <div *ngFor="let i of carlos">
+      <app-cardcategory></app-cardcategory>
+    </div>
+  </div>
+<!--
+  <div class="row">
+    <div class="four columns" *ngFor="let i of carlos">
+      <app-cardcategory ></app-cardcategory>
+    </div>
+  </div> -->
+  <mat-paginator [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"> </mat-paginator>
+</div>
+

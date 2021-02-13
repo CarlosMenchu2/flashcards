@@ -1,0 +1,20 @@
+.login-full-width {
+  width: 100%;
+}
+
+.login-card {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+
+
+}
+
+.button-login {
+  max-width: 500px;
+  width: 100%;
+}
+
+.tittle-form{
+  text-align: center;
+}
