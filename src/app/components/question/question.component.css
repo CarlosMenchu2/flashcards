@@ -1,0 +1,32 @@
+.example-card {
+  max-width: 532px;
+
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+/* .questions-container{
+  height: 100%;
+
+} */
+.card-header{
+  max-width: 500px;
+}
+
+.title-question {
+  /* text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; */
+  max-width: 400px;
+  overflow-wrap: break-word;
+}
+
+.scroll-style{
+
+  max-height: 500px;
+  max-width: 532px;
+}
+

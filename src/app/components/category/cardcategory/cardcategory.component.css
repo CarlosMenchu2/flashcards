@@ -6,3 +6,7 @@
 .example-card:hover{
   cursor: pointer;
 }
+
+.button-view{
+  width: 100%;
+}

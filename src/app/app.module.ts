@@ -27,6 +27,8 @@ import { CardcategoryComponent } from './components/category/cardcategory/cardca
 import { NewcategoryComponent } from './components/category/newcategory/newcategory.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { QuestionComponent } from './components/question/question.component';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CategoriesComponent,
     CardcategoryComponent,
     NewcategoryComponent,
+    QuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FlexLayoutModule,
     LayoutModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    PerfectScrollbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
