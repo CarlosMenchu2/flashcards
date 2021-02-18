@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgScrollbarModule } from "ngx-scrollbar";
 
 //Componentes
 import { LayoutComponent } from './components/layout/layout.component';
@@ -28,7 +29,7 @@ import { NewcategoryComponent } from './components/category/newcategory/newcateg
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { QuestionComponent } from './components/question/question.component';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
     LayoutModule,
     MatDialogModule,
     MatPaginatorModule,
-    PerfectScrollbarModule
+    NgScrollbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

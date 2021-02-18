@@ -1,18 +1,20 @@
-<div class="container">
-  <div fxLayout="row" fxLayout.lt-md="column" style="margin-top: 25px;">
-    <div fxLayout="column" fxLayoutAlign="space-between center">
-      <perfect-scrollbar class="scroll-style" >
+<div class="question-main-container">
+  <div fxLayout="row" fxLayoutAlign="space-between" fxLayout.lt-md="column" style="margin-top: 25px;">
+    <!-- <div fxLayout="column" fxLayoutAlign="space-between center"> -->
+      <div #scrollbarRef class="scroll-style my-scrollbar">
         <ng-container *ngFor="let i of [1,2,3,4,5,6,7]">
           <mat-card class="example-card">
             <mat-card-header class="card-header">
               <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title class="title-question">ddddddddddddddddddddddddddddddddddddddddddddd</mat-card-title>
+              <mat-card-title class="title-question">dddddddddddddddddddddddddddddddddddddddddddddddddddd</mat-card-title>
               <mat-card-subtitle>categoria</mat-card-subtitle>
             </mat-card-header>
           </mat-card>
         </ng-container>
-      </perfect-scrollbar>
-    </div>
-    <div style="background-color: royalblue;"> <h1>Hola</h1></div>
+      </div>
+    <!-- </div> -->
+    <div class="question-container"> <h1>Hola</h1></div>
   </div>
 </div>
+
+
