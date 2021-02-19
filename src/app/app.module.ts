@@ -29,6 +29,7 @@ import { NewcategoryComponent } from './components/category/newcategory/newcateg
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { QuestionComponent } from './components/question/question.component';
+import { QuestionCardComponent } from './components/question-card/question-card.component';
 
 
 
@@ -42,6 +43,7 @@ import { QuestionComponent } from './components/question/question.component';
     CardcategoryComponent,
     NewcategoryComponent,
     QuestionComponent,
+    QuestionCardComponent,
   ],
   imports: [
     BrowserModule,
