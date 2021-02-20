@@ -90,3 +90,23 @@
   justify-content: center;
   align-items: center;
 }
+
+.container-button-question{
+
+  display: flex;
+  justify-content: center;
+}
+
+.button-edit-question{
+  margin-top: 180px;
+  width: 100%;
+}
+
+.cotainer-button-newquestion{
+  margin-top: 25px;
+}
+
+/* .cotainer-button-newquestion button{
+  max-width: 220px;
+  width: 100%;
+} */

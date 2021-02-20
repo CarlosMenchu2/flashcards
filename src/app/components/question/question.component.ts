@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+
+import { NewQuestionComponent } from "../new-question/new-question.component";
 
 @Component({
   selector: 'app-question',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
-  constructor() { }
+  editForm:FormGroup;
+
+  constructor(private _dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.editForm = new FormGroup({
+      'editor':new FormControl(null)
+    })
+    this.editForm.get('editor').setValue('<p>dsdsdsdsdsd</p><p><em>dsdsdssdsdsd</em></p>');
   }
 
+  enviar() {
+    console.log(this.editForm.get('editor').value);
+  }
+
+  onCreateDialog() {
+    const dialogConfig = new MatDialogConfig();
+    // dialogConfig.disableClose=true;
+    dialogConfig.width="500px";
+    dialogConfig.minWidth="150px";
+    this._dialog.open(NewQuestionComponent,dialogConfig);
+  }
 }

@@ -1,5 +1,8 @@
 <div class="question-main-container">
-  <div fxLayout="row" fxLayoutAlign="space-between" fxLayout.lt-md="column" style="margin-top: 25px;">
+  <div fxLayout="row" class="cotainer-button-newquestion">
+    <button mat-raised-button color="primary" (click)="onCreateDialog()"> <mat-icon>add</mat-icon> Nueva Pregunta </button>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-between" fxLayout.lt-md="column" style="margin-top: 30px;">
     <!-- <div fxLayout="column" fxLayoutAlign="space-between center"> -->
       <div #scrollbarRef class="scroll-style my-scrollbar">
         <ng-container *ngFor="let i of [1,2,3,4,5,6,7]">
@@ -13,8 +16,18 @@
         </ng-container>
       </div>
     <!-- </div> -->
-    <div class="question-container"> <app-question-card></app-question-card> </div>
+    <div class="question-container">
+      <div>
+        <app-question-card></app-question-card>
+      </div>
+    </div>
   </div>
+
+  <div style="height: 500px; width: 700px;">
+    <form action="" [formGroup]="editForm">
+      <quill-editor formControlName="editor"></quill-editor>
+      <button mat-raised-button color="primary" (click)="enviar()">Enviar</button>
+    </form>
+  </div>
+
 </div>
-
-

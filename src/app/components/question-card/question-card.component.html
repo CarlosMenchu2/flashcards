@@ -3,6 +3,7 @@
       <h1>Hola en Frente</h1>
   </div>
   <div class="face front">
-     <button mat-raised-button color="primary"> Editar </button>
+     <button mat-raised-button color="primary" (click)="print()"> Editar </button>
+     <quill-view [content]="getContent()"></quill-view>
   </div>
 </div>

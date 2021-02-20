@@ -42,4 +42,12 @@ export class QuestionCardComponent implements OnInit {
       this.data.state = "default";
     }
   }
+
+  print(){
+    console.log("Hola Mindo");
+  }
+
+  getContent() {
+    return '<p>dsdsdsdsdsd</p><p><em>dsdsdssdsdsd</em></p>';
+  }
 }

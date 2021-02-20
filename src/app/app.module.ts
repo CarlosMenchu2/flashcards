@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,7 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgScrollbarModule } from "ngx-scrollbar";
-
+import { QuillModule } from 'ngx-quill';
 //Componentes
 import { LayoutComponent } from './components/layout/layout.component';
 
@@ -30,6 +31,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { QuestionComponent } from './components/question/question.component';
 import { QuestionCardComponent } from './components/question-card/question-card.component';
+import { NewQuestionComponent } from './components/new-question/new-question.component';
 
 
 
@@ -44,8 +46,10 @@ import { QuestionCardComponent } from './components/question-card/question-card.
     NewcategoryComponent,
     QuestionComponent,
     QuestionCardComponent,
+    NewQuestionComponent,
   ],
   imports: [
+    QuillModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -62,7 +66,9 @@ import { QuestionCardComponent } from './components/question-card/question-card.
     LayoutModule,
     MatDialogModule,
     MatPaginatorModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
