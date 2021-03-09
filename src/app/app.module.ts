@@ -32,6 +32,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { QuestionComponent } from './components/question/question/question.component';
 import { QuestionCardComponent } from './components/question/question-card/question-card.component';
 import { NewQuestionComponent } from './components/question/new-question/new-question.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -47,6 +48,7 @@ import { NewQuestionComponent } from './components/question/new-question/new-que
     QuestionComponent,
     QuestionCardComponent,
     NewQuestionComponent,
+    RegisterComponent,
   ],
   imports: [
     QuillModule.forRoot(),
