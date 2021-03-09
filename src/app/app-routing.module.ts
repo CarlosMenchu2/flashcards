@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from "./components/login/login.component";
 import { NavigationComponent } from "./components/shared/navigation/navigation.component";
 import { CategoriesComponent } from "./components/category/categories/categories.component";
-import { QuestionComponent } from "./components/question/question.component";
+import { QuestionComponent } from "./components/question/question/question.component";
 
 const routes: Routes = [
   { path: '',   redirectTo: 'login', pathMatch: 'full'},

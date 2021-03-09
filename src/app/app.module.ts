@@ -29,9 +29,9 @@ import { CardcategoryComponent } from './components/category/cardcategory/cardca
 import { NewcategoryComponent } from './components/category/newcategory/newcategory.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { QuestionComponent } from './components/question/question.component';
-import { QuestionCardComponent } from './components/question-card/question-card.component';
-import { NewQuestionComponent } from './components/new-question/new-question.component';
+import { QuestionComponent } from './components/question/question/question.component';
+import { QuestionCardComponent } from './components/question/question-card/question-card.component';
+import { NewQuestionComponent } from './components/question/new-question/new-question.component';
 
 
 
