@@ -73,6 +73,7 @@ import { RegisterComponent } from './components/register/register.component';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[RegisterComponent]
 })
 export class AppModule { }
