@@ -1,0 +1,25 @@
+<div fxLayoutAlign="row" fxLayoutAlign="center">
+  <h2>Registro</h2>
+</div>
+<form action="">
+  <mat-form-field appearance="legacy" class="input-fullwidth">
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="nombre">
+  </mat-form-field>
+  <mat-form-field appearance="legacy" class="input-fullwidth" >
+    <mat-label>Correo</mat-label>
+    <input matInput placeholder="pat@ejemplo.com">
+  </mat-form-field>
+  <mat-form-field appearance="legacy" class="input-fullwidth">
+    <mat-label>Contraseña</mat-label>
+    <input matInput placeholder="Contraseña">
+  </mat-form-field>
+  <mat-form-field appearance="legacy" class="input-fullwidth">
+    <mat-label>Confirmar Contraseña</mat-label>
+    <input matInput placeholder="Confirmar Contraseña">
+  </mat-form-field>
+</form>
+<div fxLayout="row" fxLayoutAlign="end" style="width: 100%;">
+  <button mat-stroked-button color="warn" (click)="closeDialog()">Cancelar</button>
+  <button mat-raised-button color="primary" style="margin-left:15px;">Registrarse</button>
+</div>
