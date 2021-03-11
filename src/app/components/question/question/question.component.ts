@@ -29,8 +29,9 @@ export class QuestionComponent implements OnInit {
   onCreateDialog() {
     const dialogConfig = new MatDialogConfig();
     // dialogConfig.disableClose=true;
-    dialogConfig.width="500px";
-    dialogConfig.minWidth="150px";
+    // dialogConfig.width="500px";
+    // dialogConfig.minWidth="150px";
+    // dialogConfig.height="600px";
     this._dialog.open(NewQuestionComponent,dialogConfig);
   }
 }

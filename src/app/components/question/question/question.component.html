@@ -25,9 +25,8 @@
 
   <div style="height: 500px; width: 700px;">
     <form action="" [formGroup]="editForm">
-      <quill-editor formControlName="editor"></quill-editor>
+      <quill-editor formControlName="editor" style="height: 100%;"></quill-editor>
       <button mat-raised-button color="primary" (click)="enviar()">Enviar</button>
     </form>
   </div>
-
 </div>

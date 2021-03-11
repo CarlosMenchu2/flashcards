@@ -1,10 +1,20 @@
 .container-form-newquestion {
   min-width: 150px;
   max-width: 500px;
+  height: 500px;
   width: 100%;
 }
 
 
 .full-widht{
   width: 100%;
+}
+
+.text-editor{
+  max-height: 300px;
+  height: 500px;
+}
+
+#container-response{
+  height: 450px;
 }

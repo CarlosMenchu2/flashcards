@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewQuestionComponent implements OnInit {
 
+  editorStyle = { 'height': '300px' }
+
   constructor() { }
 
   ngOnInit(): void {
