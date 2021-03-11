@@ -12,6 +12,8 @@ import { Validator } from "./validator";
 export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
+  hide1 = true;
+  hide2 = true;
 
   constructor( public dialogRef: MatDialogRef<RegisterComponent>, private _formBuilder:FormBuilder ) { }
 
