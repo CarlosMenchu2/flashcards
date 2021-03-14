@@ -9,6 +9,9 @@
       <quill-editor [styles]="{height: '250px'}" formControlName="answer"></quill-editor>
       <mat-error *ngIf="questionForm.get('answer').hasError('required') && questionForm.get('answer').touched">Campo requerido</mat-error>
     </div>
-    <button mat-raised-button color="primary" style="margin-top: 15px;" (click)="saveQuestion()" >Agregar Pregunta</button>
+    <div fxLayout="row" fxLayoutAlign="end" style="width: 100%;" class="container-buttons">
+      <button mat-stroked-button color="warn"  (click)="closeDialog()">Cancelar</button>
+      <button mat-raised-button color="primary" style="margin-left: 10px;" (click)="saveQuestion()" >Agregar Pregunta</button>
+    </div>
   </form>
 </div>

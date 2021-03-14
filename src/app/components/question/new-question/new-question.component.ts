@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
 
+
 @Component({
   selector: 'app-new-question',
   templateUrl: './new-question.component.html',
@@ -11,7 +12,7 @@ export class NewQuestionComponent implements OnInit {
 
   questionForm: FormGroup;
 
-  constructor(private _formBuilder:FormBuilder) { }
+  constructor(private _formBuilder:FormBuilder, public dialogRef: MatDialogRef<NewQuestionComponent>) { }
 
   ngOnInit(): void {
     this.createQestionForm();
@@ -28,4 +29,7 @@ export class NewQuestionComponent implements OnInit {
     console.log(this.questionForm.get('answer').value);
   }
 
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }

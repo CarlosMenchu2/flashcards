@@ -18,3 +18,7 @@
 #container-response{
   height: 450px;
 }
+
+.container-buttons button{
+  margin-top: 15px;
+}
