@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from "@angular/forms";
+import { MatDialogRef } from "@angular/material/dialog";
+
 
 @Component({
   selector: 'app-new-question',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewQuestionComponent implements OnInit {
 
-  constructor() { }
+  questionForm: FormGroup;
+
+  constructor(private _formBuilder:FormBuilder, public dialogRef: MatDialogRef<NewQuestionComponent>) { }
 
   ngOnInit(): void {
+    this.createQestionForm();
   }
 
+  createQestionForm() {
+    this.questionForm = this._formBuilder.group({
+      question:['',[Validators.required]],
+      answer: ['',[Validators.required]]
+    });
+  }
+
+  saveQuestion(){
+    console.log(this.questionForm.get('answer').value);
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
 }
