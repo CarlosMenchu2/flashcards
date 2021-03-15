@@ -1,9 +1,11 @@
 <div class="card" (click)="cardClicked()" [@cardFlip]="data.state">
   <div class="face back">
-      <h1>Hola en Frente</h1>
+      <h1 class="overflow">Hola en Frente</h1>
   </div>
   <div class="face front">
-     <button mat-raised-button color="primary" (click)="print()"> Editar </button>
-     <quill-view [content]="getContent()"></quill-view>
+     <quill-view-html  class="view-answer" [content]="getContent()"></quill-view-html>
+     <div fxLayout="row" fxLayoutAlign="center">
+      <button mat-raised-button color="primary" (click)="print()"> Editar </button>
+     </div>
   </div>
 </div>
