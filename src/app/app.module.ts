@@ -34,7 +34,11 @@ import { QuestionCardComponent } from './components/question/question-card/quest
 import { NewQuestionComponent } from './components/question/new-question/new-question.component';
 import { RegisterComponent } from './components/register/register.component';
 
-
+//Firebase
+import { environment } from "../environments/environment";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 @NgModule({
   declarations: [
@@ -51,6 +55,9 @@ import { RegisterComponent } from './components/register/register.component';
     RegisterComponent,
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     QuillModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
@@ -71,7 +78,6 @@ import { RegisterComponent } from './components/register/register.component';
     NgScrollbarModule,
     ReactiveFormsModule,
     FormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent],

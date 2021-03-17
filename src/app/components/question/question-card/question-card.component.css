@@ -4,14 +4,14 @@
 }
 
 .card {
-  box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 25px -25px rgba(0, 0, 0, 0.75);
   border-radius: 5px;
   height: 500px;
   width: 500px;
   cursor: pointer;
   position: relative;
   transform-style: preserve-3d;
-  background-color: greenyellow;
+  background-color: white;
 }
 
 .face {
@@ -25,4 +25,29 @@
 
 .front {
   transform: rotateY(180deg);
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back h1{
+  width: 100%;
+  max-width: 480px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  text-align: center;
+
+}
+.overflow {
+  word-wrap: break-word;
+}
+
+quill-view-html{
+  display: block;
+  height: 450px;
 }

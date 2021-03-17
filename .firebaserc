@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "flashcardsapp-a7440": {
+      "hosting": {
+        "flashcards": [
+          "flashcardsapp-a7440"
+        ]
+      }
+    }
+  }
+}
