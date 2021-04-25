@@ -19,9 +19,7 @@ export class AuthService {
   }
 
   async logOut(){
-    await this._firebaseAuth.signOut().then(res=>{
-      console.log(res);
-    });
+    await this._firebaseAuth.signOut();
     sessionStorage.removeItem('user');
   }
 
@@ -29,14 +27,11 @@ export class AuthService {
     this._firebaseAuth.authState.pipe(first()).toPromise();
   }
 
-  getPromesa(x:number) {
+  setUser(user) {
+    sessionStorage.setItem('user',user);
+  }
 
-    return new Promise((resolve,reject)=>{
-      if (x==10){
-        resolve('realizado');
-      }else{
-        reject('Malo');
-      }
-    });
+  getUser(){
+    sessionStorage.getItem('user');
   }
 }
