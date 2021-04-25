@@ -10,26 +10,33 @@ export class AuthService {
 
   constructor(private _firebaseAuth:AngularFireAuth) { }
 
-  async singin(email:string,password:string){
-    await this._firebaseAuth.signInWithEmailAndPassword(email,password).then(
-      res=>{
-        sessionStorage.setItem('user',JSON.stringify(res.user));
-      }
-    );
+  singin(email:string,password:string){
+    return this._firebaseAuth.signInWithEmailAndPassword(email,password);
   }
 
-  async singup(email:string, password:string) {
-    await this._firebaseAuth.createUserWithEmailAndPassword(email,password).then(res=>{
-      sessionStorage.setItem('user',JSON.stringify(res.user));
-    });
+  singup(email:string, password:string) {
+    return this._firebaseAuth.createUserWithEmailAndPassword(email,password);
   }
 
   async logOut(){
-    await this._firebaseAuth.signOut();
+    await this._firebaseAuth.signOut().then(res=>{
+      console.log(res);
+    });
     sessionStorage.removeItem('user');
   }
 
   getCurrentUser() {
     this._firebaseAuth.authState.pipe(first()).toPromise();
+  }
+
+  getPromesa(x:number) {
+
+    return new Promise((resolve,reject)=>{
+      if (x==10){
+        resolve('realizado');
+      }else{
+        reject('Malo');
+      }
+    });
   }
 }
