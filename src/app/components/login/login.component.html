@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="twelve columns height-screen d-flex">
-      <form action="" class="login-card" >
+      <div class="login-card" [formGroup]="singinForm">
         <h2 class="tittle-login">Study Flash Cards </h2>
         <mat-form-field class="login-full-width" appearance="fill">
           <mat-label>Correo</mat-label>
-          <input type="text" matInput >
+          <input type="text" matInput  formControlName="email">
         </mat-form-field>
         <mat-form-field class="login-full-width" appearance="fill">
           <mat-label>Contraseña</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'">
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
-        <button mat-raised-button class="button-login" color="primary" >Iniciar Sesion</button>
+        <button mat-raised-button class="button-login" color="primary" (click)="login()" >Iniciar Sesion</button>
         <div class="no-account" >
           <p>No tienes cuenta? <a (click)="openRegister()" style="cursor: pointer;">Registrate</a> </p>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>

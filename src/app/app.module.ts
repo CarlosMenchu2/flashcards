@@ -33,12 +33,15 @@ import { QuestionComponent } from './components/question/question/question.compo
 import { QuestionCardComponent } from './components/question/question-card/question-card.component';
 import { NewQuestionComponent } from './components/question/new-question/new-question.component';
 import { RegisterComponent } from './components/register/register.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 //Firebase
 import { environment } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AuthService } from './services/auth.service';
+import { AngularFirestore  } from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [
@@ -78,8 +81,10 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
     NgScrollbarModule,
     ReactiveFormsModule,
     FormsModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [AuthService,
+  AngularFirestore],
   bootstrap: [AppComponent],
   entryComponents:[RegisterComponent]
 })
