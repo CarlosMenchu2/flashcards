@@ -5,7 +5,7 @@ import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 import { Validator } from "./validator";
 import { AuthService } from "../../services/auth.service";
 import { User } from 'src/app/interfaces/user';
-import { QuestionService } from 'src/app/services/question.service';
+import { UserService } from "../../services/user.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   userData: User;
 
   constructor( public dialogRef: MatDialogRef<RegisterComponent>, private _formBuilder:FormBuilder,
-               private _authService: AuthService, private _registerService: QuestionService, private snackBar: MatSnackBar) { }
+               private _authService: AuthService, private _registerService: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.createRegisterForm();
