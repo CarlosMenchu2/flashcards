@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 
 import { RegisterComponent } from "../register/register.component";
 import { AuthService } from "../../services/auth.service";
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   singinForm: FormGroup;
 
   constructor(private _formBuilder:FormBuilder,private _dialog: MatDialog, private _authService:AuthService,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar, private _router:Router) { }
 
   ngOnInit(): void {
     this.createFormSining();
@@ -41,10 +42,13 @@ export class LoginComponent implements OnInit {
 
   login() {
     if(this.singinForm.valid){
-      console.log('Valido');
+
       const { email,password } = this.singinForm.value;
+
       this._authService.singin(email,password).then(res=>{
-        console.log(res);
+        console.log(res.user);
+        this._authService.setUser(res.user);
+        this._router.navigate(['main']);
       });
     }
   }
