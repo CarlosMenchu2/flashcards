@@ -1,10 +1,11 @@
 
-  <form action="" class="login-card">
+  <form action="" class="login-card" [formGroup]="categoryForm">
     <h3 class="tittle-form">Nueva Categoria</h3>
-    <mat-form-field class="login-full-width">
+    <mat-form-field appearance="fill" class="login-full-width">
       <mat-label>Categoria</mat-label>
-      <input type="text" matInput >
+      <input type="text" matInput formControlName="category">
+      <mat-error *ngIf="categoryForm.get('category').hasError('required')">Campo requerido</mat-error>
     </mat-form-field>
   </form>
-  <button mat-raised-button class="button-login" color="primary" >Agregar Categoria</button>
+  <button mat-raised-button class="button-login" color="primary" (click)="createCategory()">Agregar Categoria</button>
 
