@@ -48,16 +48,15 @@ export class RegisterComponent implements OnInit {
 
       const {name,email,password,_} = this.registerForm.value;
 
+      this.userData = {
+        name:name,
+        email:email,
+        password:password
+      }
+
       this._authService.singup(email,password).then((res)=>{
 
-        this.userData = {
-          id:res.user.uid,
-          name:name,
-          email:email,
-          password:password
-        }
-
-        this._registerService.createUser(this.userData).then(()=>{
+        this._registerService.createUser(this.userData, res.user.uid).then(()=>{
           this.dialogRef.close();
           this.snackBar.open("Registro exitoso","X",{
             duration:2000,
