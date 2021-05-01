@@ -24,14 +24,15 @@ export class AuthService {
   }
 
   getCurrentUser() {
-    this._firebaseAuth.authState.pipe(first()).toPromise();
+    return this._firebaseAuth.authState.pipe(first()).toPromise();
   }
 
   setUser(user) {
-    sessionStorage.setItem('user',user);
+
+    sessionStorage.setItem('user',JSON.stringify(user));
   }
 
   getUser(){
-    sessionStorage.getItem('user');
+    return sessionStorage.getItem('user');
   }
 }

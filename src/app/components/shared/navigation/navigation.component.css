@@ -19,3 +19,11 @@
 .hidden {
   display : none;
 }
+
+.user-name{
+  float: right;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
