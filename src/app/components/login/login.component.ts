@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
       const { email,password } = this.singinForm.value;
 
       this._authService.singin(email,password).then(res=>{
-        console.log(res.user);
         this._authService.setUser(res.user);
         this._router.navigate(['main']);
       });

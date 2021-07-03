@@ -6,6 +6,15 @@
       <input type="text" matInput formControlName="category">
       <mat-error *ngIf="categoryForm.get('category').hasError('required')">Campo requerido</mat-error>
     </mat-form-field>
+    <div>
+      <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
+      (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" dropZoneClassName="fileInput">
+          <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector" >
+            Arrastre la imagen aqui
+            <!-- <button type="button" (click)="openFileSelector()">Browse Files</button> -->
+          </ng-template>
+      </ngx-file-drop>
+    </div>
   </form>
   <button mat-raised-button class="button-login" color="primary" (click)="createCategory()">Agregar Categoria</button>
 

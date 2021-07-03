@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
 
 
 import { Category } from "../interfaces/category";
@@ -22,11 +23,19 @@ export class CategoryService {
       try {
         const id = this._afs.createId();
         const data = {id, ...category};
-        const result = this.categoryCollection.doc(id).set(data);
+        const result = await this.categoryCollection.doc(id).set(data);
         resolve(result);
       } catch (error) {
         reject(error.message);
       }
     });
+  }
+
+  getAllCategories(idUser:string) {
+
+    return this._afs.collection<Category>('categories',ref=> ref.where('idUser','==',idUser)).snapshotChanges().pipe(
+      map(actions => actions.map(a => a.payload.doc.data() as Category))
+    );
+
   }
 }

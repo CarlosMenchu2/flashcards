@@ -43,6 +43,8 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AuthService } from './services/auth.service';
 import { AngularFirestore  } from "@angular/fire/firestore";
 
+import { NgxFileDropModule } from 'ngx-file-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +83,8 @@ import { AngularFirestore  } from "@angular/fire/firestore";
     NgScrollbarModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxFileDropModule
   ],
   providers: [AuthService,
   AngularFirestore],
