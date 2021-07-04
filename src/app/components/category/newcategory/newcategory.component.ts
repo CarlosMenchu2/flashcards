@@ -25,7 +25,7 @@ export class NewcategoryComponent implements OnInit {
   imageData:any;
   url:string;
   fileAttr = '';
-  inProgress:boolean = true;
+  inProgress:boolean = false;
 
   constructor(public dialogRef: MatDialogRef<NewcategoryComponent>,private _formBuilder:FormBuilder, private _categoryService: CategoryService,
               private _snackBar: MatSnackBar, private _authService:AuthService, private _fileService:FileService) { }
@@ -51,11 +51,12 @@ export class NewcategoryComponent implements OnInit {
 
 
       this.url = 'images/'+Math.random()+new Date().getTime()+this.fileAttr;
-
+      this.inProgress=true;
       this._fileService.updateImage(this.url,this.imageData).then(()=>{
         this._fileService.getImage(this.url).subscribe(imageCompleteURL=>{
           this.armarFormulario(imageCompleteURL);
           this._categoryService.createCategory(this.categoryData).then(()=>{
+            this.inProgress = false;
             this.dialogRef.close();
             this._snackBar.open("Categoria Creada","X",{
               duration:2000,
