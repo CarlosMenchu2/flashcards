@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { FileService } from "../../../services/file.service";
 
 @Component({
   selector: 'app-cardcategory',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardcategoryComponent implements OnInit {
 
-  constructor() { }
+  @Input() infoCard:any = [];
+
+  constructor(private _fileService:FileService) { }
+
 
   ngOnInit(): void {
+  }
+
+  getImageURL(){
+
+
   }
 
 }

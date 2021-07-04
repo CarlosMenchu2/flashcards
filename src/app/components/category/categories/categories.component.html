@@ -7,8 +7,8 @@
 
 
   <div fxLayout="row wrap" fxLayoutAlign="flex-start center" fxLayout.lt-md="column" fxLayoutGap="80px">
-    <div *ngFor="let i of categories">
-      <app-cardcategory></app-cardcategory>
+    <div *ngFor="let categori of categories">
+      <app-cardcategory [infoCard]="categori" ></app-cardcategory>
     </div>
   </div>
 <!--

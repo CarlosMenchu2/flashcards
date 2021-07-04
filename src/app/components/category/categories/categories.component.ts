@@ -25,7 +25,6 @@ export class CategoriesComponent implements OnInit {
 
   onCreateDialog() {
     const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose=true;
     dialogConfig.autoFocus=true;
     dialogConfig.width="500px";
     dialogConfig.minWidth="150px";

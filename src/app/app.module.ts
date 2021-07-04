@@ -34,6 +34,7 @@ import { QuestionCardComponent } from './components/question/question-card/quest
 import { NewQuestionComponent } from './components/question/new-question/new-question.component';
 import { RegisterComponent } from './components/register/register.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 //Firebase
 import { environment } from "../environments/environment";
@@ -84,7 +85,8 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     ReactiveFormsModule,
     FormsModule,
     MatSnackBarModule,
-    NgxFileDropModule
+    NgxFileDropModule,
+    MatProgressSpinnerModule
   ],
   providers: [AuthService,
   AngularFirestore],

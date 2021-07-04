@@ -6,15 +6,27 @@
       <input type="text" matInput formControlName="category">
       <mat-error *ngIf="categoryForm.get('category').hasError('required')">Campo requerido</mat-error>
     </mat-form-field>
-    <div>
-      <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
-      (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)" dropZoneClassName="fileInput">
-          <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector" >
-            Arrastre la imagen aqui
-            <!-- <button type="button" (click)="openFileSelector()">Browse Files</button> -->
-          </ng-template>
-      </ngx-file-drop>
+    <mat-form-field class="file-browser">
+      <div>
+        <mat-toolbar>
+          <!-- Display files names -->
+          <input matInput formControlName="image" readonly name="name" [value]="fileAttr" />
+
+          <!-- Browse Button -->
+          <button mat-flat-button color="primary">
+            Buscar Imagen
+          </button>
+        </mat-toolbar>
+
+        <!-- Fetch selected filed on change -->
+        <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile" multiple="multiple"
+          accept="image/*" />
+      </div>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="center" style="margin-bottom: 10px;" >
+      <img [src]="imageURL" alt="imagen" width="150" height="150" *ngIf="imageURL">
     </div>
+    <mat-spinner></mat-spinner>
   </form>
   <button mat-raised-button class="button-login" color="primary" (click)="createCategory()">Agregar Categoria</button>
 

@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
 
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
 import { CategoryService } from "../../../services/category.service";
 import { Category } from "../../../interfaces/category";
 import { AuthService } from "../../../services/auth.service";
+import { FileService } from "../../../services/file.service";
 
-import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
+
 
 @Component({
   selector: 'app-newcategory',
@@ -19,19 +21,27 @@ export class NewcategoryComponent implements OnInit {
 
   categoryForm: FormGroup;
   categoryData:Category;
-  public files: NgxFileDropEntry[] = [];
+  imageURL:any;
+  imageData:any;
+  url:string;
+  fileAttr = '';
+  inProgress:boolean = true;
 
   constructor(public dialogRef: MatDialogRef<NewcategoryComponent>,private _formBuilder:FormBuilder, private _categoryService: CategoryService,
-              private _snackBar: MatSnackBar, private _authService:AuthService) { }
+              private _snackBar: MatSnackBar, private _authService:AuthService, private _fileService:FileService) { }
 
   ngOnInit(): void {
     this.createFormCategory();
   }
 
+  @ViewChild('fileInput') fileInput: ElementRef;
+
+
   createFormCategory() {
 
     this.categoryForm = this._formBuilder.group({
-      category: ['',[Validators.required]]
+      category: ['',[Validators.required]],
+      image: ['']
     });
   }
 
@@ -39,19 +49,21 @@ export class NewcategoryComponent implements OnInit {
 
     if(this.categoryForm.valid) {
 
-      const { category } = this.categoryForm.value;
 
-      this.categoryData = {
-        category:category,
-        idUser:JSON.parse(this._authService.getUser())['uid']
-      }
-      this._categoryService.createCategory(this.categoryData).then(()=>{
-        this.dialogRef.close();
-        this._snackBar.open("Categoria Creada","X",{
-          duration:2000,
-          horizontalPosition:"right",
-          verticalPosition:"top"
-        })
+      this.url = 'images/'+Math.random()+new Date().getTime()+this.fileAttr;
+
+      this._fileService.updateImage(this.url,this.imageData).then(()=>{
+        this._fileService.getImage(this.url).subscribe(imageCompleteURL=>{
+          this.armarFormulario(imageCompleteURL);
+          this._categoryService.createCategory(this.categoryData).then(()=>{
+            this.dialogRef.close();
+            this._snackBar.open("Categoria Creada","X",{
+              duration:2000,
+              horizontalPosition:"right",
+              verticalPosition:"top"
+            });
+          });
+        });
       });
     } else {
 
@@ -60,49 +72,36 @@ export class NewcategoryComponent implements OnInit {
     }
   }
 
-  public dropped(files: NgxFileDropEntry[]) {
-    this.files = files;
-    for (const droppedFile of files) {
+  uploadFileEvt(imgFile: any) {
 
-      // Is it a file?
-      if (droppedFile.fileEntry.isFile) {
-        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
-        fileEntry.file((file: File) => {
-
-          // Here you can access the real file
-          console.log(droppedFile.relativePath, file);
-
-          /**
-          // You could upload it like this:
-          const formData = new FormData()
-          formData.append('logo', file, relativePath)
-
-          // Headers
-          const headers = new HttpHeaders({
-            'security-token': 'mytoken'
-          })
-
-          this.http.post('https://mybackend.com/api/upload/sanitize-and-save-logo', formData, { headers: headers, responseType: 'blob' })
-          .subscribe(data => {
-            // Sanitized logo returned from backend
-          })
-          **/
-
-        });
-      } else {
-        // It was a directory (empty directories are added, otherwise only files)
-        const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
-        console.log(droppedFile.relativePath, fileEntry);
+    if (imgFile.target.files[0]) {
+      this.imageData = imgFile.target.files[0];
+      this.fileAttr = '';
+      Array.from(imgFile.target.files).forEach((file: File) => {
+        this.fileAttr += file.name;
+      });
+      // HTML5 FileReader API
+      let reader = new FileReader();
+      reader.readAsDataURL(imgFile.target.files[0]);
+      reader.onload = (_event) => {
+        this.imageURL = reader.result;
       }
+      // Reset if duplicate image uploaded again
+      this.fileInput.nativeElement.value = "";
+    } else {
+      this.fileAttr = 'Choose File';
+
     }
   }
 
-  public fileOver(event){
-    console.log(event);
-  }
+  private armarFormulario(url) {
 
-  public fileLeave(event){
-    console.log(event);
+    const { category } = this.categoryForm.value;
+    // this.url = 'images/'+Math.random()+new Date().getTime()+this.fileAttr;
+    this.categoryData = {
+      category:category,
+      imageURL: url,
+      idUser:JSON.parse(this._authService.getUser())['uid']
+    }
   }
-
 }

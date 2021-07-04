@@ -48,6 +48,8 @@ export class LoginComponent implements OnInit {
       this._authService.singin(email,password).then(res=>{
         this._authService.setUser(res.user);
         this._router.navigate(['main']);
+      }).catch(()=>{
+        console.log('Usuario o Contraseña Incorrectos');
       });
     }
   }
