@@ -1,5 +1,5 @@
 <div class="question-main-container">
-  <div fxLayout="row" class="cotainer-button-newquestion">
+  <div fxLayout="row" fxLayoutAlign="end" class="cotainer-button-newquestion">
     <button mat-raised-button color="primary" (click)="onCreateDialog()"> <mat-icon>add</mat-icon> Nueva Pregunta </button>
   </div>
   <div fxLayout="row" fxLayoutAlign="space-between" fxLayout.lt-md="column" style="margin-top: 30px;">
@@ -8,16 +8,29 @@
         <app-question-card></app-question-card>
       </div>
     </div>
-    <div #scrollbarRef class="scroll-style my-scrollbar">
-      <ng-container *ngFor="let i of [1,2,3,4,5,6,7]">
-        <mat-card class="example-card">
-          <mat-card-header class="card-header">
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title class="title-question">dddddddddddddddddddddddddddddddddddddddddddddddddddd</mat-card-title>
-            <mat-card-subtitle>categoria</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
-      </ng-container>
-    </div>
+
   </div>
 </div>
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <div class="title-container" fxLayout="row" fxLayoutAlign="center center">
+    <h5 class="title-question1">¿Cual es la arquitectura basica de las computadoras?</h5>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <button mat-raised-button color="primary" (click)="onCreateViewAnswer()" >Ver Respuesta</button>
+</div>
+<div fxLayout="row" fxLayoutAlign="center" style="margin-top: 25px;">
+  <div #scrollbarRef class="question-container">
+    <ng-container *ngFor="let i of [1,2,3,4,5]">
+      <mat-card class="example-card">
+        <mat-card-header class="card-header">
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title class="title-question">dddddddddddddddddddddddddddddddddddddddddddddddddddd</mat-card-title>
+          <mat-card-subtitle>categoria</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </ng-container>
+  </div>
+</div>
+

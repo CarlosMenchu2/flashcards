@@ -45,6 +45,7 @@ import { AuthService } from './services/auth.service';
 import { AngularFirestore  } from "@angular/fire/firestore";
 
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { AnswerToQuestionComponent } from './components/question/answer-to-question/answer-to-question.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { NgxFileDropModule } from 'ngx-file-drop';
     QuestionCardComponent,
     NewQuestionComponent,
     RegisterComponent,
+    AnswerToQuestionComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

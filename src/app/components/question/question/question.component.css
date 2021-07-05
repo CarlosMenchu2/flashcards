@@ -8,6 +8,7 @@
 }
 
 .example-card {
+  margin-top: 10px;
   max-width: 500px;
   width: 100%;
 }
@@ -27,68 +28,20 @@
 }
 
 .title-question {
-  /* text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap; */
   width: 100%;
   max-width: 400px;
   overflow-wrap: break-word;
 }
 
-.scroll-style{
-  width: 100%;
-  max-height: 700px;
-  max-width: 532px;
-  overflow-y: auto;
-}
-
-.scroll-style::-webkit-scrollbar {
-  -webkit-appearance: none;
-
-}
-
-.scroll-style::-webkit-scrollbar:vertical {
-  width:10px;
-}
-
-.scroll-style::-webkit-scrollbar-button:increment,.scroll-style::-webkit-scrollbar-button {
-  display: none;
-}
-
-
-.scroll-style::-webkit-scrollbar-thumb:hover {
-  background-color: #797979;
-  border-radius: 20px;
-  border: 2px solid #f1f2f3;
-}
-
-.scroll-style::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
-/* .container::-webkit-scrollbar-thumb:hover {
-  background: #b3b3b3;
-  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-} */
-
-.scroll-style::-webkit-scrollbar-track:hover,
-.scroll-style::-webkit-scrollbar-track:active {
-  background: #d4d4d4;
-}
-
-.scroll-style::-webkit-scrollbar-thumb:active {
-  background-color: #999999;
-}
 
 /* Question Container */
 .question-container{
 
-  max-width: 600px;
+  max-width: 550px;
   max-height: 700px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow-y: auto;
+
 }
 
 .container-button-question{
@@ -106,7 +59,20 @@
   margin-top: 25px;
 }
 
-/* .cotainer-button-newquestion button{
-  max-width: 220px;
-  width: 100%;
-} */
+.title-container {
+  height: 300px;
+  padding: 0 20px;
+}
+
+.title-container h5{
+  max-width: 1000px;
+}
+
+.title-question1 {
+  text-align: center;
+  font-size: 50px;
+  line-height: 0.95em;
+  overflow-wrap: break-word;
+
+
+}

@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 
 import { NewQuestionComponent } from "../new-question/new-question.component";
+import { AnswerToQuestionComponent } from "../answer-to-question/answer-to-question.component";
 
 @Component({
   selector: 'app-question',
@@ -33,5 +34,12 @@ export class QuestionComponent implements OnInit {
     // dialogConfig.minWidth="150px";
     // dialogConfig.height="600px";
     this._dialog.open(NewQuestionComponent,dialogConfig);
+  }
+
+  onCreateViewAnswer() {
+
+    const dialogAnswer = new MatDialogConfig();
+    this._dialog.open(AnswerToQuestionComponent,dialogAnswer);
+
   }
 }
