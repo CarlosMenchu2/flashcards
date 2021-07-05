@@ -1,0 +1,11 @@
+.answer-container {
+  width: 550px;
+}
+.btn-edit-answer {
+  margin-top: 10px;
+}
+
+quill-view-html {
+  display: block;
+  height: 500px;
+}
