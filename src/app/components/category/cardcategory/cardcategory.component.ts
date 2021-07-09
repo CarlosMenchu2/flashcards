@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 import { FileService } from "../../../services/file.service";
 
@@ -11,7 +12,7 @@ export class CardcategoryComponent implements OnInit {
 
   @Input() infoCard:any = [];
 
-  constructor(private _fileService:FileService) { }
+  constructor(private _fileService:FileService, private _router:Router) { }
 
 
   ngOnInit(): void {
@@ -20,6 +21,10 @@ export class CardcategoryComponent implements OnInit {
   getImageURL(){
 
 
+  }
+
+  viewQuestions(idCategory) {
+    this._router.navigate(['main/questions',idCategory]);
   }
 
 }
