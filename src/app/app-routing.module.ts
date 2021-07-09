@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'main', component: NavigationComponent,
     children: [
       { path: 'categories', component: CategoriesComponent},
-      { path: 'questions', component: QuestionComponent}
+      { path: 'questions/:idcategory', component: QuestionComponent}
     ]
   },
 
