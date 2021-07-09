@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { Router, ActivatedRoute } from "@angular/router";
 
 import { NewQuestionComponent } from "../new-question/new-question.component";
 import { AnswerToQuestionComponent } from "../answer-to-question/answer-to-question.component";
@@ -14,7 +15,12 @@ export class QuestionComponent implements OnInit {
 
   editForm:FormGroup;
 
-  constructor(private _dialog: MatDialog) { }
+  constructor(private _dialog: MatDialog,private _activatedRoute: ActivatedRoute,  private _router: Router) {
+    this._activatedRoute.params.subscribe(params=>{
+      console.log(params['idcategory']);
+
+    });
+   }
 
   ngOnInit(): void {
     this.editForm = new FormGroup({
