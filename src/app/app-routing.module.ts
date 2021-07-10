@@ -6,10 +6,12 @@ import { NavigationComponent } from "./components/shared/navigation/navigation.c
 import { CategoriesComponent } from "./components/category/categories/categories.component";
 import { QuestionComponent } from "./components/question/question/question.component";
 
+import { LoginGuard } from "./guards/login.guard";
+
 const routes: Routes = [
   { path: '',   redirectTo: 'login', pathMatch: 'full'},
-  { path: 'login', component: LoginComponent  },
-  { path: 'main', component: NavigationComponent,
+  { path: 'login', component: LoginComponent },
+  { path: 'main', component: NavigationComponent,canActivate: [LoginGuard], canActivateChild:[LoginGuard],
     children: [
       { path: 'categories', component: CategoriesComponent},
       { path: 'questions/:idcategory', component: QuestionComponent}
