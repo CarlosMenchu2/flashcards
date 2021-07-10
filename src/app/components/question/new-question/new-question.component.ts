@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
+import { ActivatedRoute } from "@angular/router";
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 import { QuestionService } from "../../../services/question.service"
 import { Question } from "../../../interfaces/question";
@@ -14,9 +17,17 @@ export class NewQuestionComponent implements OnInit {
 
   questionForm: FormGroup;
   questionInterface:Question;
+  idCategory:string = "Hola";
 
   constructor(private _formBuilder:FormBuilder, public dialogRef: MatDialogRef<NewQuestionComponent>,
-              private _questionService:QuestionService) { }
+              private _questionService:QuestionService, private _activatedRoute: ActivatedRoute,
+              private _snackBar: MatSnackBar) {
+
+    this._activatedRoute.params.subscribe(params=>{
+      console.log(params['idcategory']);
+      this.idCategory = params['idcategory'];
+    });
+  }
 
   ngOnInit(): void {
     this.createQestionForm();
@@ -39,11 +50,16 @@ export class NewQuestionComponent implements OnInit {
       this.questionInterface = {
         question:question,
         answer:answer,
-        idCategory:'',
+        idCategory:this.idCategory,
       }
 
       this._questionService.createQuestion(this.questionInterface).then(()=>{
-        console.log('Pregunta Creada');
+        this.dialogRef.close();
+        this._snackBar.open("Pregunta Creada","X",{
+          duration:2000,
+          horizontalPosition:"right",
+          verticalPosition:"top"
+        });
       },
       (error)=>{
         console.log(error);
