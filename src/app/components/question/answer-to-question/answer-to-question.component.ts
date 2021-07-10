@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnswerToQuestionComponent implements OnInit {
 
+  answer:string;
+
   constructor() { }
 
   ngOnInit(): void {
