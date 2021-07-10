@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { NewQuestionComponent } from "../new-question/new-question.component";
 import { AnswerToQuestionComponent } from "../answer-to-question/answer-to-question.component";
 import { QuestionService } from "../../../services/question.service";
+import { CategoryService } from "../../../services/category.service";
 
 @Component({
   selector: 'app-question',
@@ -16,10 +17,12 @@ export class QuestionComponent implements OnInit {
 
   editForm:FormGroup;
   idCategory: string;
+  nameCategory:any = [];
   questions:any = [];
+  question:any = [];
 
   constructor(private _dialog: MatDialog,private _activatedRoute: ActivatedRoute,
-              private _router: Router, private _questionService:QuestionService) {
+              private _categoryService:CategoryService, private _questionService:QuestionService) {
 
     this._activatedRoute.params.subscribe(params=>{
       console.log(params['idcategory']);
@@ -52,7 +55,9 @@ export class QuestionComponent implements OnInit {
   onCreateViewAnswer() {
 
     const dialogAnswer = new MatDialogConfig();
-    this._dialog.open(AnswerToQuestionComponent,dialogAnswer);
+
+    let dialogRef:MatDialogRef<AnswerToQuestionComponent> = this._dialog.open(AnswerToQuestionComponent,dialogAnswer);
+    dialogRef.componentInstance.answer = this.question.answer;
 
   }
 
@@ -62,5 +67,10 @@ export class QuestionComponent implements OnInit {
       this.questions=questions;
       console.log(this.questions);
     });
+  }
+
+  viewQuestion(question) {
+
+    this.question=question;
   }
 }
