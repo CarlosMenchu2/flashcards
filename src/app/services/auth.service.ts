@@ -35,4 +35,13 @@ export class AuthService {
   getUser(){
     return sessionStorage.getItem('user');
   }
+
+  isLogged():boolean {
+
+    if(null!=sessionStorage.getItem('user')){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
