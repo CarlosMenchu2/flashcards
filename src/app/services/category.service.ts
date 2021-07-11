@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { CategoriesComponent } from '../components/category/categories/categories.component';
 
 
 import { Category } from "../interfaces/category";
